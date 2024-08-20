@@ -1,0 +1,28 @@
+@charset "UTF-8";
+        
+
+        body {
+            background-color: #ccc;
+            margin: 0;
+        }
+
+        .wrap {
+            width: 80%;
+            background-color: #fff;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+
+        .wrap img {
+            width: 100%;
+
+        }
+
+        .wrap h2 {
+            font-size: 22px;
+        }
+
+        .wrap h5 {
+            color: #ccc;
+            font-weight: normal;
+        }

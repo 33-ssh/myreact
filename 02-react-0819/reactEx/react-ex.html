@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+</head>
+
+<body>
+    <!-- 參考 :https://today.line.me/tw/v2/article/OpNnNpv -->
+
+    <div id="root"></div>
+    <script type="text/babel">
+        function App(){
+            return <>
+                <div className="wrap">
+                    <h2>【趣吧】台灣夏日露營區推薦！森林系、玩水系、豪華露營區挑選指南</h2>
+                    <p>台灣擁有豐富的自然資源和多樣的地形山林間的幽靜、高低海拔林相的差異河流的清涼又或是奢華的露營體驗都能滿足不同露營愛好者的需求本篇文章推薦幾個適合夏日露營的露營區分別介紹森林系、玩水系以及豪華冷氣系露營區幫助你選擇最適合自己的夏日露營區地點！
+                    </p>
+            
+                    <h3>台灣夏日露營區推薦目錄：</h3>
+                    <ul>
+                        <li>台灣夏日露營區推薦地點</li>
+                        <li>夏日露營區森林系露營推薦# 夏日露營森林系– 蟬說：霧語
+                            <p>夏日露營森林系– 山上種樹</p>
+                            <p>夏日露營森林系– 野石森林露營區</p>
+                        </li>
+                        <li>更多露營行程推薦</li>
+                    </ul>
+                    <h2>台灣夏日形成推薦景點</h2>
+                    <img src="https://today-obs.line-scdn.net/0hn4wasRNWMRtKGCG-5PdOTHJOPWp5fisSaH95f20ZbyIyNHMac35ieGsZOjc0e3VMai0uLmxKaCpuLHNKIQ/w1200"
+                        alt=""/>
+                    <h5>台灣夏日露營區推薦——森林系、玩水系、豪華露營區挑選指南 （圖／Tripbaa趣吧！旅遊平台）</h5>
+                    <p>這個夏天想和家人朋友一起去露營放鬆，卻又怕天氣太熱嗎？別擔心～本篇夏日露營文章推薦你幾間超人氣森林系、玩水系、豪華冷氣系露營區，適合夏日露營的地點推薦，快快收藏起來，分享給你喜愛露營的朋友吧！免裝備豪華懶人露營讓你不用再大包小包，只要人到現場就能體會夏日露營的美好。
+                    </p>
+                </div>
+                </>
+
+
+        }
+        
+        ReactDOM
+            .createRoot(document.getElementById('root'))
+            .render(<App />);
+
+    </script>
+
+</body>
+
+</html>
