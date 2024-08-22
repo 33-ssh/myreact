@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 步驟一:react,bable -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <!-- 步驟2:載入根元素(roof) -->
+    <div id="root"></div>
+
+    <script type="text/babel">
+        // 建立圖片元件
+        // 元件名稱字首大寫
+        function GetImg(props){
+            // 元件結束後必須要有回傳值
+            return(
+                <img title={props.title} src={props.imgUrl} alt="" style={{
+                    // width:'300px',
+                    width:props.width,
+                    marginBottpm:'20px',
+                    // borderWidth:props.bw,
+                    // borderColor:props.bc,
+                    // borderStyle:props.bs,
+                    border:props.border,
+
+                }} />
+            )
+        }
+
+        // 步驟3:建立React元件
+        function App() {
+            // JSX寫法
+            return(
+                <div>
+                    <h2>呼叫圖片元件</h2>
+                    {/*呼叫元件:擇其一*/}
+                    {/*<GetImg></GetImg>*/}
+                    {/*使用自訂屬性名稱，傳值給元件*/}
+                    {/*元件使用props接收*/}
+                    <GetImg imgUrl="../image/IMG_8347.jpg" title="圖1" width="300px" bs="solid" bc="#a0a" bw="5px"/>
+                    <GetImg imgUrl="../image/90766dcc8c0fe5e787017a23a5dac42f.png" title="圖2" width="150px" border="10px dashed red"/>
+
+                    {/*沒有元件化要重工多次*/}
+                    </div>
+
+                    
+            )
+
+        }
+        //  步驟4:渲染(顯示)元件到根元件(root)上
+        ReactDOM
+            .createRoot(document.getElementById('root'))
+            .render(<App/>);
+    </script>
+
+</body>
+
+</html>
