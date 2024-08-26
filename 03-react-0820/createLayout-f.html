@@ -38,8 +38,7 @@
             return (
               <div className="card mb-4">
                 <div className="card-header">
-                  {/*沒有被解構的寫法*/}
-                  <h4 className="my-0">{props.title}</h4>
+                  
                   {/*有被解構的寫法*/}
                   <h4 className="my-0">{title}</h4>
                 </div>
@@ -50,27 +49,55 @@
                   {/*條件式? 條件成立 : 條件不成立*/}
                   <h1 className="card-title">
                     {
-                      // 沒有被解構的寫法
                       // 檢查price是否為數值型別
                       // 是=>顯示價格/月(含small標籤)
                       // 不是=>顯示字串內容
-                      typeof props.price === 'number' ? <>${props.price}<small>/月</small></> : props.price
+                      typeof props.price === 'number' ? <>${price}<small>/月</small></> : props.price
                     }
-                    <br/>
-                    {
-                      typeof props.price === 'number' ? <>${props.price}<small>/月</small></> : price
-                    }
-                    }
+                    
                   </h1>
 
-                  <p>{props.desc}</p>
+                  <p>{desc}</p>
                   <button type="button" className="btn btn-outline-primary">{props.btnName}</button>
                 </div>
               </div>
-            );
+            )
 
-          };
+          }
           const App = () => {
+            // 建立陣列物件資料
+            const products = [
+              {
+                id:1, //跑迴圈時，需要一個資料不會重複的key值
+                title:'基本版',
+                price:1000,
+                desc:'基本版說明區',
+                btnName:'免費試用'
+              },
+              {
+                id:2, //跑迴圈時，需要一個資料不會重複的key值
+                title:'進階版',
+                price:1000,
+                desc:'進階版說明區',
+                btnName:'進階版申請'
+
+              },
+              {
+                id:3, //跑迴圈時，需要一個資料不會重複的key值
+                title:'專業版',
+                price:1000,
+                desc:'專業版說明區',
+                btnName:'企業版申請'
+              },
+              {
+                id:4, //跑迴圈時，需要一個資料不會重複的key值
+                title:'企業版',
+                price:'請洽客服',
+                desc:'多人適用。。。',
+                btnName:'企業版申請'
+              },
+              
+            ]
             return (
               <>
                 <h2>租用方案</h2>
@@ -80,13 +107,21 @@
                   consequuntur cupiditate, nam a doloremque error adipisci nulla reiciendis
                   itaque odio voluptatibus.
                 </p>
-                {/*呼叫卡片元件*/}
-                < Card title="基本版" price={1000} desc="基本版說明區" btnName="免費試用" />
-                < Card title="進階版" price={6000} desc="進階版說明區" btnName="進階版申請" />
-                < Card title="企業版" price="請洽客服" desc="多人適用。。。" btnName="企業版申請" />
+                {/*使用迴圈，將陣列物件中的資料填入*/}
+                {/*在輸出(return)時使用JS的話，要加上{}*/}
+                {
+                  products.map((item)=>{
+                    // 呼叫卡片元件
+                    // return  < Card title="基本版" price={1000} desc="基本版說明區" btnName="免費試用" />
+                    // 改用陣列值傳值給元件
+                    return < Card key={item.id} title={item.title} price={item.price} desc={item.desc} btnName={item.btnName} />
+                  })
+                }
+                <h2>方案使用說明</h2>
+
               </>
-            )
-          }
+            );
+          };
 
           ReactDOM.createRoot(document.getElementById('root')).render(<App />);
         </script>
