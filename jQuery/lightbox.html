@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- 燈箱效果css -->
+    <link rel="stylesheet" href="./lightbox/css/lightbox.css">
+
+
+
+
+
+
+
+
+    <!-- 步驟一:react,bable -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <!-- 步驟2:載入根元素(roof) -->
+    <div id="root"></div>
+
+    <script type="text/babel">
+        // 步驟3:建立React元件
+        function App() {
+            // JSX寫法
+            return (
+                <div>
+                    <h1>燈箱效果</h1>
+                    <a href="../image/03f01617946e73cbcb2259e47a4a69ca.png" data-lightbox="group" data-title="PHOTO2">
+                        <img src="../image/03f01617946e73cbcb2259e47a4a69ca.png" alt="" />
+                    </a>
+                    <a href="../image/90766dcc8c0fe5e787017a23a5dac42f.png" data-lightbox="group" data-title="PHOTO2">
+                        <img src="../image/90766dcc8c0fe5e787017a23a5dac42f.png" alt="" />
+                    </a>
+                    <a href="../image/f7c664394e9b3bec1961f29eb60842d7.png" data-lightbox="group" data-title="PHOTO3">
+                        <img src="../image/f7c664394e9b3bec1961f29eb60842d7.png" alt="" />
+                    </a>
+                </div>
+            )
+        }
+        //  步驟4:渲染(顯示)元件到根元件(root)上
+        ReactDOM
+            .createRoot(document.getElementById('root'))
+            .render(<App />);
+    </script>
+    <!--jquery主程式  -->
+    <script src="./js/jquery-1.11.3.min.js"></script>
+    <!-- 燈箱效果js -->
+    <script src="./lightbox/js/lightbox.js"></script>
+</body>
+
+</html>

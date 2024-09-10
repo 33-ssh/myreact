@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #container{
+            /*因應左右留白平均  */
+            margin: auto;
+        } 
+        .box {
+            width: 300px;
+            margin-bottom: 5px;
+        }
+
+        .box img {
+            width: 300px;
+            vertical-align: bottom;
+            /*處理圖片下方預設留白取消*/
+        }
+    </style>
+
+
+    <!-- https://malsup.com/jquery/cycle/ -->
+    <!-- 步驟一:react,bable -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <!-- 步驟2:載入根元素(roof) -->
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useEffect } = React;
+
+
+        function App() {
+            useEffect(() => {
+                //撰寫jquery
+                $(function () {
+                    $('#container').imagesLoaded(function () {
+                        $('#container').masonry({
+                            //若要產生左右留白平均(水平置中)，必須搭配最外框的container要margin:auto
+                            isFitWidth: true 
+                        });
+                    });
+                });
+            }, []);
+
+            return (
+                <div>
+                    <h1>瀑布流</h1>
+
+                    <div id="container">
+                        <div class="box">
+                            <img src="../image/03f01617946e73cbcb2259e47a4a69ca.png" alt="" />
+                        </div>
+                        <div class="box">
+                            <img src="../image/90766dcc8c0fe5e787017a23a5dac42f.png" alt="" />
+                        </div>
+                        <div class="box">
+                            <img src="../image/f7c664394e9b3bec1961f29eb60842d7.png" alt="" />
+                        </div>
+                        <div class="box">
+                            <img src="../image/03f01617946e73cbcb2259e47a4a69ca.png" alt="" />
+                        </div>
+                        <div class="box">
+                            <img src="../image/90766dcc8c0fe5e787017a23a5dac42f.png" alt="" />
+                        </div>
+                        <div class="box">
+                            <img src="../image/f7c664394e9b3bec1961f29eb60842d7.png" alt="" />
+                        </div>
+                        <div class="box">
+                            <img src="../image/03f01617946e73cbcb2259e47a4a69ca.png" alt="" />
+                        </div>
+                        <div class="box">
+                            <img src="../image/90766dcc8c0fe5e787017a23a5dac42f.png" alt="" />
+                        </div>
+                    </div>
+                </div>
+
+            )
+        }
+        //  步驟4:渲染(顯示)元件到根元件(root)上
+        ReactDOM
+            .createRoot(document.getElementById('root'))
+            .render(<App />);
+    </script>
+    <!--jquery主程式  -->
+    <script src="./js/jquery-1.11.3.min.js"></script>
+    <!-- 載入圖片主程式 -->
+    <script src="./js/imagesloaded.pkgd.min.js"></script>
+    <!--瀑布流主程式  -->
+    <script src="./js/masonry.pkgd.min.js"></script>
+</body>
+
+</html>

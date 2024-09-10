@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            font-family: sans-serif;
+        }
+
+        #wrappper {
+            width: 960px;
+            margin: 50px auto;
+        }
+
+        p {
+            text-align: justify;
+            line-height: 1.5;
+        }
+
+        a {
+            color: red;
+            text-decoration: none;
+
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .ttpShow {
+            display: none;
+        }
+
+        .ttpPanel {
+            border: 3px solid #ccc;
+            padding: 15px;
+            text-align: left;
+            background-color: #FFF;
+            position: absolute;
+            z-index: 99;
+            display: none;
+        }
+    </style>
+
+
+    <!-- https://malsup.com/jquery/cycle/ -->
+    <!-- 步驟一:react,bable -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <!-- 步驟2:載入根元素(roof) -->
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useEffect } = React;
+
+
+        function App() {
+            useEffect(() => {
+                //撰寫jquery
+                $(function () {
+
+                    // 滑鼠事件
+                    // 移入 => mouseover()
+                    // 移動 => mousemove()
+                    // 移出 => mouseout()
+
+                    // 座標X =>pageX
+                    // 座標Y =>pageY
+
+                    // 淡出 => fadeIn()
+                    // 淡出 => fadeOut()
+                    // 速度 =>可以使用秒數或者參數(slow,normal,fast)
+                    // 傳回被找的資訊 => has()
+
+                    // append():將元素加到選擇器之後
+                    // html():選取$(選擇器)所有的HTML
+
+                    $('a:has(.ttpShow)').mouseover(function (e) {
+                        $('body').append('<div id="ttpPanel">' + $(this).children('.ttpShow').html() + '</div>');
+                        $('#ttpPanel').css({ top: (e.pageY + 10) + 'px', left: (e.pageX + 10) + 'px' }).fadeIn('fast');
+                    }).mousemove(function (e) {
+                        $('#ttpPanel').css({ top: (e.pageY + 10) + 'px', left: (e.pageX + 10) + 'px' });
+                    }).mouseout(function () {
+                        $('#ttpPanel').remove();
+                    });
+
+                });
+
+            },[]);
+
+        return (
+            <div>
+                <h1>tootip效果-使用滑鼠方法</h1>
+                <p>Lorem ipsum dolor sit amet <a href="#">consectetur<span className="ttpShow">內容說明</span></a> adipisicing elit. Cupiditate dolorem accusantium labore corrupti. Pariatur fugit fuga incidunt alias beatae odio, explicabo iusto amet veniam ducimus ipsa eius eaque necessitatibus officia, iure unde soluta? Eum, quod ex! Adipisci architecto recusandae atque animi, veniam porro assumenda, perspiciatis nemo incidunt ipsa, enim alias non fugit voluptates totam vero. Fugit, harum nemo blanditiis quis perferendis libero incidunt, saepe officiis, eligendi magni vitae ut sit similique facilis! Inventore vero officiis quod quos, quasi facere. Consequuntur beatae, sunt quam inventore dolores est, exercitationem at doloribus reprehenderit dolore, ullam error facilis? Fugiat veniam officiis ut sapiente hic.</p>
+            </div>
+        )
+
+        //  步驟4:渲染(顯示)元件到根元件(root)上
+        ReactDOM
+            .createRoot(document.getElementById('root'))
+            .render(<App />);
+    </script>
+    <!--jquery主程式  -->
+    <script src="./js/jquery-1.11.3.min.js"></script>
+
+    <!--滑動主程式  -->
+
+</body>
+
+</html>

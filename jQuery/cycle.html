@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        img {
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+
+    <!-- https://malsup.com/jquery/cycle/ -->
+    <!-- 步驟一:react,bable -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <!-- 步驟2:載入根元素(roof) -->
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useEffect } = React;
+        // 撰寫jQuery
+        // $(document).ready(function(){
+        // });
+        // jQuery環境簡寫
+
+
+        function App() {
+
+            useEffect(() => {
+                // 撰寫jQuery
+                // jQuery環境簡寫
+                $(function () {
+                    $('#imgCycle').cycle({
+                        fx: 'fade', //輪播方式(預設值)
+                        timeout: 500,  //輪播速度
+                        delay: 2000,  //第一次的第一張圖停留時間
+                    });
+                });
+            }, []);
+
+            return (
+                <div>
+                    <h1>自動輪播</h1>
+                    <div id="imgCycle">
+                        <img src="../image/03f01617946e73cbcb2259e47a4a69ca.png" alt="" />
+                        <img src="../image/90766dcc8c0fe5e787017a23a5dac42f.png" alt="" />
+                        <img src="../image/f7c664394e9b3bec1961f29eb60842d7.png" alt="" />
+
+                    </div>
+                </div>
+            )
+        }
+        //  步驟4:渲染(顯示)元件到根元件(root)上
+        ReactDOM
+            .createRoot(document.getElementById('root'))
+            .render(<App />);
+    </script>
+    <!--jquery主程式  -->
+    <script src="./js/jquery-1.11.3.min.js"></script>
+    <!-- 輪播js -->
+    <script src="./js/jquery.cycle.all.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        a {
+            color: black;
+            text-decoration: none;
+        }
+
+        .fadeBtn {
+            display: block;
+            width: 200px;
+            height: 80px;
+            line-height: 80px;
+            background-color: #ccc;
+            font-size: 20px;
+            text-align: center;
+            border-radius: 5px;
+            border: 2px solid #fff;
+            box-shadow: 0 0 3px;
+        }
+    </style>
+
+
+    <!-- https://malsup.com/jquery/cycle/ -->
+    <!-- 步驟一:react,bable -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <!-- 步驟2:載入根元素(roof) -->
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useEffect } = React;
+
+
+        function App() {
+            useEffect(() => {
+                //撰寫jquery
+                $(function () {
+                    $('.fadeBtn').hover(function () {
+                        //滑鼠移入時且放大文字
+                        $(this).animate({ opacity: '0.5', fontSize: '24px' }, 300);
+
+                    }, function () {
+                        // 滑鼠離開時淡入且還原文字大小
+                        $(this).animate({ opacity: '1', fontSize: '20px' }, 300);
+                    });
+
+                });
+            }, []);
+
+            return (
+                <div>
+                    <h1>animate效果</h1>
+                    <a href="#" className="fadeBtn">按鈕</a>
+                </div>
+            )
+        }
+        //  步驟4:渲染(顯示)元件到根元件(root)上
+        ReactDOM
+            .createRoot(document.getElementById('root'))
+            .render(<App />);
+    </script>
+    <!--jquery主程式  -->
+    <script src="./jQuery/js/jquery-1.11.3.min.js"></script>
+
+    <!--滑動主程式  -->
+
+</body>
+
+</html>
