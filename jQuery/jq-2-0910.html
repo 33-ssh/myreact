@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #wraaper {
+            width: 800px;
+            margin: 0 auto;
+            text-align: justify;
+            padding: 50px 0;
+
+        }
+
+        .btnArea {
+            color: brown;
+            text-decoration: none;
+        }
+
+        p {
+            line-height: 1.5;
+
+        }
+
+        /*隱藏*/
+
+        #modalContent {
+            display: none;
+        }
+
+        /* 遮罩元素 */
+    </style>
+
+
+    <!-- https://malsup.com/jquery/cycle/ -->
+    <!-- 步驟一:react,bable -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <!-- 步驟2:載入根元素(roof) -->
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useEffect } = React;
+
+
+        function App() {
+            useEffect(() => {
+                //撰寫jquery
+                $(function () {
+
+
+                    // 取得彈跳視窗按鈕
+                    let mdwBtn = $('.modalBtn');
+                    // 遮罩背景透明度
+                    let overlayOpacity = 0.7;
+
+                    // jquery監聽事件的寫法
+                    modalBtn.on('onclick', function (e) {
+                        // 取消預設動作
+                        e.preventDefault();
+
+                        // 取得超連結
+                        let setMdw = $(this);
+                        // 取得超連結的href屬性值
+                        let setHref = setMdw.attr('href');
+
+                        // 取得href對應id的內容
+                        let setSource = $(setHref).html();
+                        // 取得視窗高度
+                        let curHeight = $(window).height();
+
+                        /*
+                        //動態生成下方的元素
+                        //遮罩元素
+                        <div id="mdOverlay"></div>
+                        //彈跳視窗 
+                        <div id="mdWindow">
+                            //關閉紐
+                            <div className="mdClose">x</div>
+                            //被隱藏的內容
+                            <div id="contentWrap">被隱藏的內容</div>
+                        </div>
+                        */
+
+                        $('body').append('<div id="mdOverlay"></div><div id="mdWindow"><div class="mdClose">x</div><div id="contentWrap">內容</div>');
+
+                        $('#mdOverlay,#mdWindow').css({ display: 'block', opacity: '0' });
+                        $('#mdOverlay').css({ height: curHeight });
+
+
+                    });
+
+                });
+            }, []);
+
+            return (
+                <div id="wrapper">
+                    {/*按鈕區*/}
+                    <div class="btnArea">
+                        <a href="#modalContent" className="modalBtn">彈跳視窗</a>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptate modi assumenda, totam adipisci quasi laudantium dolorem facere suscipit corporis dignissimos voluptates sed neque vel sunt minus deleniti nostrum incidunt similique.</p>
+                    {/*彈出視窗內容*/}
+                    <div id="moadalContent">
+                        <h2>彈出視窗標題</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam nulla enim eum facere sed reiciendis corrupti eligendi, at dignissimos delectus officiis cum officia eveniet quis sequi rem aliquam, in fuga!</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, corrupti at expedita quaerat voluptatem numquam excepturi sit nobis nemo incidunt laboriosam, facere esse eum quis totam molestiae animi maiores vero!</p>
+                    </div>
+                    )
+        }
+                    //  步驟4:渲染(顯示)元件到根元件(root)上
+                    ReactDOM
+                    .createRoot(document.getElementById('root'))
+                    .render(<App />);
+    </script>
+    <!--jquery主程式  -->
+    <script src="./js/jquery-1.11.3.min.js"></script>
+
+</body>
+
+</html>
