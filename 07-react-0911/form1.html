@@ -31,7 +31,7 @@
             // 建立一個縣市名陣列清單
 
             const arrCity = ['台北市', '新北市', '台中市'];
-            const [selCity,setSelCity] = useState('');
+            const [selCity, setSelCity] = useState('');
             return (
                 <div>
                     {/*#1 input*/}
@@ -45,7 +45,7 @@
                     <hr />
 
                     {/*#2 下拉清單 select*/}
-                    <select name="" id="" value={selCity} onChange={e=>setSelCity(e.target.value)}>
+                    <select name="" id="" value={selCity} onChange={e => setSelCity(e.target.value)}>
                         <option value="" disabled>請選擇</option>
                         {/* <option value="台北市">台北市</option> 
                         <option value="新北市">新北市</option> 
@@ -59,6 +59,26 @@
                         }
 
                     </select>-{selCity}
+
+                    <hr />
+                    {/*複選的下拉清單 select*/}
+
+                    <select name="" id="" multiple
+                        value={selCity2}
+                        onChange={(e) => {
+
+                        }}>
+
+                        <option value="" disabled>請選擇</option>
+                        {
+                            arrCity2.map((city) => {
+                                return <option value={city} key={city}>{city}</option>
+                            })
+
+
+                        }
+
+                    </select>-{selCity2}
 
                 </div>
 

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 載入BootStrap -->
+    <script src="../03-react-0820/javascripts/vendor.js"></script>
+    <link rel="stylesheet" href="../03-react-0820/css/all.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <!-- 步驟一:react,bable -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+</head>
+
+<body>
+    <!-- 步驟2:載入根元素(roof) -->
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState } = React;
+        // #1 核取方塊
+
+
+        function App() {
+            // #1核取方塊checkBox
+            const [check, setCheck] = useState(false);
+
+            // #2多個核取方塊checkBox
+            const [chkList, setChkList] = useState([]);
+
+            // 建立一個函式處理是否被選取
+            const handleCheckList = (e);
+            // 檢查是否被勾選
+            // 是=>就顯示
+            // jsx寫法
+            return (
+                <div>
+                    {/*#1 核取方塊*/}
+                    <label htmlFor="isCheck">確認狀態</label>
+                    <input type="checkbox" id="isCheck"
+                        value={check}
+                        onChange={(e) => {
+                            // console.dir(e);
+                            setCheck(e.target.checked);
+                        }}
+                    />{check.toString()}
+
+                    <hr />
+                    {/*#1 核取方塊*/}
+                    <label htmlFor="isCheck">確認狀態</label>
+                    <input type="checkbox" id="isCheck"
+                        value={check}
+                        onChange={(e) => {
+                            // console.dir(e);
+                            setCheck(e.target.checked);
+                        }}
+                    />{check.toString()}
+
+
+                </div>
+
+
+            )
+
+        }
+        ReactDOM
+            .createRoot(document.getElementById('root'))
+            .render(<App />);
+    </script>
+
+</body>
+
+</html>
