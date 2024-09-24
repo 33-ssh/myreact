@@ -31,6 +31,7 @@
                     // 資料來源：https://data.gov.tw/dataset/6069
                     // 天氣圖示：https://www.cwb.gov.tw/V8/C/K/Weather_Icon.html
                     // 因為氣象圖示相當多，所以本範例中僅採用已下載天氣資料為主，其餘圖示同學可至上方氣象局網站下載
+                    
                     (async () => {
                         const data = await axios.get('./F-C0032-001.json');
                         const { location } = data.data.cwaopendata.dataset;

@@ -1,7 +1,7 @@
 /*!
   * Bootstrap v5.2.0 (https://getbootstrap.com/)
   * Copyright 2011-2022 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
-  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE) 
   */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
@@ -10,7 +10,7 @@
 })(this, (function () { 'use strict';
 
   /**
-   * --------------------------------------------------------------------------
+   * ---------------------------------------------------------------------------
    * Bootstrap (v5.2.0): util/index.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
