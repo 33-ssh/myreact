@@ -16,7 +16,7 @@ $(function () {
 		$('#mdOverlay,#mdWindow').css({ display: 'block', opacity: '0' });
 		// 有動畫
 		// $('#mdOverlay').css({ height: wdHeight }).stop().animate({ opacity: overlayOpacity }, fadeTime);
-		// $('#mdWindow').stop().animate({ opacity: '1' }, fadeTime);
+		// $('#mdWindow').stop().animate({ opacity: '1' }, fadeTime); 
 		// 無動畫
 		$('#mdOverlay').css({ height: wdHeight, opacity: overlayOpacity });
 		$('#mdWindow').css({ opacity: '1' });
